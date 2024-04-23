@@ -1,13 +1,12 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-// const url = "http://localhost:5000/api";
 
 // GET
 
 export const getSculptures = async () => {
 
-    const response = await axios.get('http://localhost:10000/api');
+    const response = await axios.get('https://museum-app-oxnt.onrender.com/api');
     const data = await response.data;
     return data;
 }
@@ -16,7 +15,7 @@ export const getSculptures = async () => {
 
 export const getSculptureById = async (id) => {
 
-    const response = await axios.get(`http://localhost:10000/api/${id}`);
+    const response = await axios.get(`https://museum-app-oxnt.onrender.com/api/${id}`);
     const data = await response.data;
     return data;
     // console.log(data)
@@ -38,7 +37,7 @@ export const deleteSculptures = async (id) => {
     console.log(id)
     if (result.isConfirmed) {
 
-        const response = await axios.delete(`http://localhost:10000/api/${id}`)
+        const response = await axios.delete(`https://museum-app-oxnt.onrender.com/api/${id}`)
         const data = await response.data
         console.log(data)
 
@@ -61,7 +60,7 @@ export const deleteSculptures = async (id) => {
 export const createSculptures = async (newSculptures) => {
     Swal.fire("Obra creada con éxito!");
 
-    const response = await axios.post('http://localhost:10000/api/', newSculptures)
+    const response = await axios.post('https://museum-app-oxnt.onrender.com/api/', newSculptures)
 
     return response;
 }
@@ -71,7 +70,7 @@ export const createSculptures = async (newSculptures) => {
 
 export const editSculptures = async (id, data) => {
 
-    const response = await axios.put(`http://localhost:10000/api/${id}`, data)
+    const response = await axios.put(`https://museum-app-oxnt.onrender.com/api/${id}`, data)
 
     if (response) {
         Swal.fire(
