@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 export const getSculptures = async () => {
 
-    const response = await axios.get('http://localhost:5000/api');
+    const response = await axios.get('http://localhost:10000/api');
     const data = await response.data;
     return data;
 }
@@ -16,7 +16,7 @@ export const getSculptures = async () => {
 
 export const getSculptureById = async (id) => {
 
-    const response = await axios.get(`http://localhost:5000/api/${id}`);
+    const response = await axios.get(`http://localhost:10000/api/${id}`);
     const data = await response.data;
     return data;
     // console.log(data)
@@ -38,7 +38,7 @@ export const deleteSculptures = async (id) => {
     console.log(id)
     if (result.isConfirmed) {
 
-        const response = await axios.delete(`http://localhost:5000/api/${id}`)
+        const response = await axios.delete(`http://localhost:10000/api/${id}`)
         const data = await response.data
         console.log(data)
 
@@ -46,7 +46,6 @@ export const deleteSculptures = async (id) => {
             Swal.fire(
                 `La escultura ${data.title} ha sido eliminada correctamente`
             ).then(() => {
-                // Recargar la página después de eliminar la escultura
                 window.location.reload();
             });
         } else {
@@ -62,7 +61,7 @@ export const deleteSculptures = async (id) => {
 export const createSculptures = async (newSculptures) => {
     Swal.fire("Obra creada con éxito!");
 
-    const response = await axios.post('http://localhost:5000/api/', newSculptures)
+    const response = await axios.post('http://localhost:10000/api/', newSculptures)
 
     return response;
 }
@@ -72,7 +71,7 @@ export const createSculptures = async (newSculptures) => {
 
 export const editSculptures = async (id, data) => {
 
-    const response = await axios.put(`http://localhost:5000/api/${id}`, data)
+    const response = await axios.put(`http://localhost:10000/api/${id}`, data)
 
     if (response) {
         Swal.fire(
